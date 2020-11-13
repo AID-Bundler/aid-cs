@@ -1,0 +1,37 @@
+{
+  "name": "aid-cs",
+  "version": "0.1.0",
+  "description": "A character sheet implementation for AI Dungeon.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDudeFromCI/aid-cs.git"
+  },
+  "keywords": [
+    "ai",
+    "dungeon",
+    "aid",
+    "character",
+    "sheet",
+    "cs",
+    "rp",
+    "role",
+    "play",
+    "utility",
+    "plugin"
+  ],
+  "author": "TheDudeFromCI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheDudeFromCI/aid-cs/issues"
+  },
+  "homepage": "https://github.com/TheDudeFromCI/aid-cs#readme",
+  "devDependencies": {
+    "aid-bundler": "^1.0.1",
+    "standard": "^16.0.2"
+  }
+}
