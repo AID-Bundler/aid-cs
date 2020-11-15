@@ -1,3 +1,4 @@
 module.exports = function (text, state, info, worldEntries, history) {
-  return { text: text }
+  const data = new AIDData(text, state, info, worldEntries, history)
+  return data.finalizeOutput()
 }
