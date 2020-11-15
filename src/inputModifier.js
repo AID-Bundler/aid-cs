@@ -1,3 +1,8 @@
+const { commandChecker } = require('./command_handler')
+
 module.exports = function (text, state, info, worldEntries, history) {
-  return { text: text }
+  const data = new AIDData(text, state, info, worldEntries, history)
+  commandChecker(data)
+
+  return data.finalizeOutput()
 }
