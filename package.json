@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "description": "A character sheet implementation for AI Dungeon.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheDudeFromCI/aid-cs.git"
@@ -30,8 +27,10 @@
     "url": "https://github.com/TheDudeFromCI/aid-cs/issues"
   },
   "homepage": "https://github.com/TheDudeFromCI/aid-cs#readme",
+  "dependencies": {
+    "aid-bundler": "^1.2.0"
+  },
   "devDependencies": {
-    "aid-bundler": "^1.0.1",
     "standard": "^16.0.2"
   }
 }
