@@ -6,7 +6,9 @@ module.exports = function (getPlayerCS) {
       const cs = getPlayerCS(data)
   
       data.useAI = false
-      data.text = options.header
+
+      data.text = '\n\n'
+      data.text += options.header
     
       let row = ''
       let col = 0
