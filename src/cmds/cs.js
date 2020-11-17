@@ -10,7 +10,8 @@ module.exports = function (getPlayerCS) {
     
       let row = ''
       let col = 0
-      for (const att in cs.attributes) {
+      for (const attName in cs.attributes) {
+        const att = cs.attributes[attName]
     
         if (col > 0) {
           row += ' | '
