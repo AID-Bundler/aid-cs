@@ -1,70 +1,53 @@
-const CS_CONFIG = {
-
-  visual: {
-    header: '<===== { Character Sheet } =====>',
-    footer: '<=========== { 1/1 } ===========>',
-    columns: 3,
-    numberPadding: 4
-  },
-
-  attributes: [
-    {
-      name: 'health',
-      "abbreviation": 'hp',
-      defaultValue: 1
-    },
-    {
-      name: 'max health',
-      "abbreviation": 'mhp',
-      defaultValue: 1
+module.exports = function (attributes, skills) {
+  function getPlayerCS (data) {
+    if (!data.state.cs) {
+      data.state.cs = { name: data.info.characters[0].name }
+      initCharacterSheet(data.state.cs)
     }
-  ],
-
-  skills: [
-    {
-      name: 'sprint'
-    }
-  ]
-}
-
-function getPlayerCS (data) {
-  if (!data.state.cs) {
-    data.state.cs = {}
-    data.state.cs.name = 'Player'
-    initCharacterSheet(data.state.cs)
+  
+    return data.state.cs
   }
 
-  return data.state.cs
-}
+  function getNpcCS (data, npcName) {
+    if (!data.state.cs_npc) data.state.cs_npc = {}
+    if (!data.state.cs_npc[npcName]) {
+      data.state.cs_npc[npcName] = { name: npcName }
+      initCharacterSheet(data.state.cs_npc[npcName])
+    }
 
-function initCharacterSheet (cs) {
-  if (!cs.name) {
-    cs.name = 'Unnamed'
+    return data.state.cs_npc[npcName]
   }
 
-  if (!cs.attributes) {
-    cs.attributes = {}
-    for (const att of CS_CONFIG.attributes) {
-      const attribute = {}
-      attribute.name = att.name
-      attribute.value = att.defaultValue
-      cs.attributes[att.name] = attribute
+  function deleteNpcCS (data, npcName) {
+    if (!data.state.cs_npc) data.state.cs_npc = {}
+    delete data.state.cs_npc[npcName]
+  }
+  
+  function initCharacterSheet (cs) {
+    if (!cs.attributes) {
+      cs.attributes = {}
+      for (const att of attributes) {
+        const attribute = {}
+        attribute.name = att.name
+        attribute.value = att.defaultValue
+        cs.attributes[att.name] = attribute
+      }
+    }
+  
+    if (!cs.skills) {
+      cs.skills = {}
+      for (const skl of skills) {
+        const skill = {}
+        skill.name = skl.name
+        skill.level = 1
+        cs.skills[skl.name] = skill
+      }
     }
   }
-
-  if (!cs.skills) {
-    cs.skills = {}
-    for (const skl of CS_CONFIG.skills) {
-      const skill = {}
-      skill.name = skl.name
-      skill.level = 1
-      cs.skills[skl.name] = skill
-    }
+  
+  return {
+    getNpcCS,
+    deleteNpcCS,
+    getPlayerCS
   }
-}
-
-module.exports = {
-  initCharacterSheet,
-  getPlayerCS,
-  CS_CONFIG
 }
