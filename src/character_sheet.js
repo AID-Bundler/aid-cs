@@ -1,7 +1,7 @@
 module.exports = function (attributes, skills) {
   function getPlayerCS (data) {
     if (!data.state.cs) {
-      data.state.cs = { name: data.info.characters[0].name }
+      data.state.cs = { name: 'You' }
       initCharacterSheet(data.state.cs)
     }
   
