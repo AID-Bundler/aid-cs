@@ -7,7 +7,7 @@ module.exports = function (options) {
   const { getPlayerCS, getNpcCS, deleteNpcCS } = csHandlers(options.attributes, options.skills)
 
   return {
-    csCommand,
+    csCommand: csCommand(getPlayerCS),
     getPlayerCS,
     getNpcCS,
     deleteNpcCS
