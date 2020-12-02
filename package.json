@@ -1,9 +1,11 @@
 {
   "name": "aid-cs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A character sheet implementation for AI Dungeon.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "standard"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheDudeFromCI/aid-cs.git"
